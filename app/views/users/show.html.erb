@@ -1,0 +1,33 @@
+<%= render 'layouts/navbar' %>
+
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+
+<div class="body">
+	<% if user_signed_in? %>
+	  <div class="container">
+		<p id="notice">Signed in successfully</p>
+		<div class="row">
+			<div class="col-xs-3">
+				<h2>User info</h2>
+				<table class="table">
+					<tbody>
+						<tr>
+							<th>name</th>
+							<th><%= @user.name %></th>
+						</tr>
+						<tr>
+							<th>introduction</th>
+							<th><%= @user.introduction %></th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+      </div>
+   <% else %>
+     <h1>Homes#top</h1>
+     <p>Find me in app/views/homes/top.html.erb</p>
+   <% end %>
+
+</div>
