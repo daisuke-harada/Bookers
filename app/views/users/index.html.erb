@@ -1,4 +1,56 @@
 <%= render 'layouts/navbar' %>
 
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="body">
+	  <div class="container">
+		<p id="notice">Signed in successfully</p>
+		<div class="row">
+			<div class="col-xs-3">
+				<h2>User info</h2>
+                <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
+				<table class="table">
+					<tbody>
+						<tr>
+							<th>name</th>
+							<th><%= @user.name %></th>
+						</tr>
+						<tr>
+							<th>introduction</th>
+							<th><%= @user.introduction %></th>
+						</tr>
+					</tbody>
+				</table>
+				<div class="row">
+					<%= link_to "edit", edit_user_path(current_user.id) %>
+				</div>
+				<h2>New book</h2>
+			</div>
+			<div class="col-xs-3">
+			</div>
+			<div class="col-xs-9">
+				<h2>Users</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>image</th>
+							<th>name</th>
+							<th clospan="3"></th>
+						</tr>
+					</thead>
+					<tbody>
+					  <% @users.each do |user| %>
+						<tr>
+							<td><%= user.name%></td>
+							<td><%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg' %></td>
+							<td><%= link_to "show",user_path(@user.id) %></td>
+						</tr>
+					  <% end %>
+					</tbody>
+				</table>
+			</div>
+		   </div>
+		</div>
+      </div>
+
+
+
+
