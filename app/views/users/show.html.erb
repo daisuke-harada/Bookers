@@ -30,8 +30,42 @@
 					<% end %>
 				</div>
 				<h2>New book</h2>
+				<%= form_for(@book) do |f| %>
+				<div class="field row">
+					<%= f.label :title, "Title" %>
+					<%= f.text_field :title %>
+				</div>
+				<div class="field row">
+					<%= f.label :body, "Opinion" %>
+					<%= f.text_area :body %>
+				</div>
+				<div class="action row">
+					<%= f.submit "Create book" %>
+				</div>
+
+				<% end %>
 			</div>
-			<div class="col-xs-3">
+			<div class="col-xs-9">
+				<h2>Books</h2>
+				<table class="table">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Title</th>
+							<th>Opinion</th>
+							<th clospan="3"></th>
+						</tr>
+					</thead>
+					<tbody>
+					  <% @mybooks.each do |mybook| %>
+						<tr>
+							<td><%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: 'jpeg' %></td>
+							<td><%= link_to mybook.title, book_path(mybook.id) %></td>
+							<td><%= mybook.body %></td>
+						</tr>
+					  <% end %>
+					</tbody>
+				</table>
 			</div>
 		   </div>
 		</div>

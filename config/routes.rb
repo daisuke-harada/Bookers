@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
     authenticated :user do
       root to: 'uses#show', as: :user_root
-      resources :books, only:[:index, :edit, :create, :update]
-      resources :users, only:[:index, :edit, :create, :update, :show]
+      resources :books, only:[:index, :edit, :create, :update, :show]
+      resources :users, only:[:index, :edit, :update, :show]
     end
  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
