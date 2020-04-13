@@ -20,21 +20,23 @@
 					</tbody>
 				</table>
 				<div class="row">
-					<%= link_to "edit", edit_user_path(current_user.id) %>
+					<%= link_to "", edit_user_path(current_user.id), class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
 				</div>
 
 				<h2>New book</h2>
 				<%= form_for(@book) do |f| %>
 				<div class="field row">
 					<%= f.label :title, "Title" %>
+					<br>
 					<%= f.text_field :title %>
 				</div>
 				<div class="field row">
 					<%= f.label :body, "Opinion" %>
+					<br>
 					<%= f.text_area :body %>
 				</div>
 				<div class="action row">
-					<%= f.submit "Create book" %>
+					<%= f.submit "Create book", class:"btn btn-primary col-xs-12" %>
 				</div>
 
 				<% end %>
@@ -52,8 +54,8 @@
 					<tbody>
 					  <% @users.each do |user| %>
 						<tr>
-							<td><%= user.name%></td>
 							<td><%= attachment_image_tag user, :profile_image, :fill, 50, 50, format: 'jpeg' %></td>
+							<td><%= user.name%></td>
 							<td><%= link_to "show",user_path(user.id) %></td>
 						</tr>
 					  <% end %>
@@ -63,6 +65,8 @@
 		</div>
   </div>
 </div>
+
+<%= render 'layouts/footer' %>
 
 
 
