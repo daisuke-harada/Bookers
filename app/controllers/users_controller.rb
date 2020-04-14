@@ -3,8 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @user = current_user
-    @bookpost = Book.new
+    @book = Book.new
   end
 
   def show
@@ -12,7 +11,7 @@ class UsersController < ApplicationController
     @books = Book.all
     books = @books
     @mybooks = @user.books
-    @bookpost = Book.new
+    @book = Book.new
   end
 
   def edit

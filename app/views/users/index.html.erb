@@ -1,10 +1,12 @@
 <div class="row">
+
   <div class="col-xs-3">
     <h2>User info</h2>
     <%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
 	<table class="table">
 	  <tbody>
-	    <tr>
+	    <tr></tr>
+		<tr>
 		  <th>name</th>
 		  <th><%= current_user.name %></th>
 		</tr>
@@ -15,11 +17,10 @@
 	  </tbody>
 	</table>
 	<div class="row">
-	  <%= link_to "", edit_user_path(current_user.id), class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
+	    <%= link_to "", user_path(current_user.id), class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
 	</div>
-
 	<h2>New book</h2>
-	  <%= form_for(@bookpost) do |f| %>
+	  <%= form_for(@book) do |f| %>
 	    <div class="field row">
 		  <%= f.label :title, "Title" %>
 		  <br>
@@ -30,12 +31,12 @@
 		  <br>
 		  <%= f.text_area :body %>
 		</div>
-		<div class="action row">
-		  <%= f.submit "Create book", class:"btn btn-primary col-xs-12" %>
+		<div class="actions row">
+		  <%= f.submit "Create Book", class:"btn btn-primary col-xs-12" %>
 		</div>
 
 	  <% end %>
-  </div>
+    </div>
   <div class="col-xs-9">
     <h2>Users</h2>
 	<table class="table">
