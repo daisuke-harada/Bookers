@@ -9,13 +9,15 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
-    @bookpost = Book.new
+    @book_find = Book.find(params[:id])
+    @user = @book_find.user
+    @book = Book.new
   end
 
   def index
   	@books = Book.all
     @book = Book.new
+    @user = current_user
   end
 
   def create
@@ -26,6 +28,7 @@ class BooksController < ApplicationController
        flash[:created] = 'You have creatad book successfully.'
     else
       @books = Book.all
+      @user = current_user
       render 'books/index'
     end
   end
