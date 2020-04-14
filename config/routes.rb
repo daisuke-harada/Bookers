@@ -4,7 +4,6 @@ Rails.application.routes.draw do
 
   devise_for :users
     authenticated :user do
-      root to: 'uses#show', as: :user_root
       resources :books, only:[:index, :edit, :create, :update, :show, :destroy]
       resources :users, only:[:index, :edit, :update, :show]
     end

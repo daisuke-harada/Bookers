@@ -1,25 +1,31 @@
-<%= render 'layouts/navbar' %>
+<h2>User Info</h2>
 
-<div class="body">
-	<div class="container">
-		<h2>User Info</h2>
-          <%= form_for (@user) do |f| %>
-            <div class="field">
-            	<%= f.label :name %>
-            	<%= f.text_field :name %>
-                <br>
-                <%= f.attachment_field :profile_image %>
-            </div>
-            <div class="field">
-            	<%= f.label :introduction %>
-            	<%= f.text_area :introduction %>
-            </div>
-            <div class="action">
-            	<%= f.submit "Update User" %>
-            </div>
-          <% end %>
-
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @user.errors.count %> errors prohibited this book from being saved:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do|message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
     </div>
-</div>
+  <% end %>
 
-<%= render 'layouts/footer' %>
+<%= form_for (@user) do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label "Image" %>
+    <%= f.attachment_field :profile_image %>
+  </div>
+  <div class="field">
+    <%= f.label :introduction %>
+    <%= f.text_area :introduction %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Update User" %>
+  </div>
+<% end %>
+
