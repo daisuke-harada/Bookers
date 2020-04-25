@@ -8,7 +8,7 @@
 	<tbody>
 	  <tr>
 	    <td>
-		  <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size:'50x500' %>
+		  <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size:'50x50' %>
 		<br>
 		  <%= link_to @user.name, user_path(@user.id) %>
 		</td>
